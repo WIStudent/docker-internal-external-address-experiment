@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  service1:
+    build: .
+    entrypoint: node service1.js
+    networks:
+      mynetwork:
+        aliases:
+          - service1.local
+        ipv4_address: 172.28.0.1
+
+  service2:
+    build: .
+    entrypoint: node service2.js
+    networks:
+      mynetwork:
+        aliases:
+          - service2.local
+        ipv4_address: 172.28.0.2
+
+  service3:
+    build: .
+    entrypoint: node service3.js
+    networks:
+      mynetwork:
+        aliases:
+          - service3.local
+        ipv4_address: 172.28.0.3
+
+
+networks:
+  mynetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.28.0.0/29"
+          gateway: 172.28.0.4
