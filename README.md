@@ -6,9 +6,9 @@ Trying to figure out a docker-compose config that allows reaching services on th
 
 1. Add the following to `/etc/hosts`:
 ```
-172.28.0.1 service1.local
-172.28.0.2 service2.local
-172.28.0.3 service3.local
+127.0.0.1  service1.local
+127.0.0.1  service2.local
+127.0.0.1  service3.local
 ```
 
 2. Run `docker compose up`
